@@ -9,12 +9,10 @@ void setup()
   Serial.begin(115200);
   Serial.println("Connect to Wifi...");
   WiFi.begin(ssid, password);
-  if(WiFi.status() == WL_CONNECTED)
-  {
-    Serial.println("Wifi is connected!");
-    Serial.print("IP Address: ");
-    Serial.println(WiFi.localIP());
-  }
+  while(WiFi.status() == WL_CONNECTED);
+  Serial.println("Wifi is connected!");
+  Serial.print("IP Address: ");
+  Serial.println(WiFi.localIP());
 }
 
 void loop()
